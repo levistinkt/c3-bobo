@@ -1,11 +1,17 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () { return view('home'); });
+
+Route::resource('/teams', TeamsController::class);
+Route::resource('/tournament', TournamentController::class);
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

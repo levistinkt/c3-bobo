@@ -8,9 +8,7 @@
 </head>
 
 <header>
-    <nav>
-        <a href="{{ '/' }}">home</a>
-    </nav>
+    <x-nav/>
 </header>
 
 <body>
