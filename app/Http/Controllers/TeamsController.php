@@ -21,7 +21,8 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        //
+        $teams = Teams::all();
+        return view('teams.create', ['teams' => $teams]);
     }
 
     /**
