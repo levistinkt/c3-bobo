@@ -44,7 +44,8 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $team = Team::find($id);
+        return view('teams.show', ['team' => $team]);
     }
 
     /**
@@ -52,22 +53,27 @@ class TeamsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $team = Team::find($id);
+        return view('teams.edit', ['team' => $team]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Team $team)
     {
-        //
+        $team->name = $request->name;
+        $team->save();
+
+        return redirect()->route('teams.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Team $team)
     {
-        //
+        $team->delete();
+        return redirect()->route('teams.index');
     }
 }
