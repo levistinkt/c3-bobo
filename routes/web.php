@@ -13,8 +13,6 @@ Route::resource('/teams', TeamsController::class);
 Route::resource('/tournament', TournamentController::class);
 
 
-
-
 Route::get('/dashboard', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('dashboard');

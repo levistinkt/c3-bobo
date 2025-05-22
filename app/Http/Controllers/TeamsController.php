@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\Teams;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        $teams = Teams::all();
+        $teams = Team::all();
         return view('teams.index', compact('teams'));
     }
 
@@ -21,7 +22,7 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        $teams = Teams::all();
+        $teams = Team::all();
         return view('teams.create', ['teams' => $teams]);
     }
 
@@ -30,7 +31,12 @@ class TeamsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $team = Team::create([
+            'name' => $request->input('name'),
+        ]);
+
+
+        return redirect()->route('teams.index');
     }
 
     /**

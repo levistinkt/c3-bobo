@@ -1,5 +1,5 @@
 <x-base-layout>
 
-    <p>tournament summary</p>
+    <h2>tournament summary</h2>
 
 </x-base-layout>
